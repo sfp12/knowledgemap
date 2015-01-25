@@ -1,12 +1,9 @@
-20150110 knowledge_map修改的地方：
-1、dialog的调整。把结构图中的dialog（另存，新建知识点）调整到全局中（我的列表，knowledge_map_js_showKnowledgeMapListCode），相应的js也移过来，增加ksmid和dblclick_sign两个全局变量。dialog js中的增加局部变量。
-更新table时，移除四个dialog，关闭我的列表时，也移除；
-2、知识点-确定之前的判断：1、没有内容，提示，2、有内容，但不在ksname中，提示，3、可以改变
-3、去掉了dblclick_sign。还是要做单击和双击独立。只是在双击之后，把click_sign=0。
-4、在knowledge_map_js_newKnowledgeMapJs中，click事件需要unbind。
-5、不用getComment()：打开结构图时，从列表中提取
-6、dialog不要通过option，传递数据，用局部变量就好。现在是全局变量
-7、knowledge_map_js_JSONAndSave 和 knowledge_map_js_JSONAndUpdate中需要加knowledge_map.nodes_pid = [];
-8、根节点的父节点设为-1
-9、新建的保存，关掉，再打开新的；重画的保存，重画新的；另存的不变。
-10、dialog的open加了捕获enter按键的方法。
+介绍：实现一个概念图的功能。版本一：Java+sql server;版本二：nodejs+mongodb。klm_practice，knowledge_map是版本一种的前端js，klm是版本二的后端js。
+技术：sql server，hibernate，jquery UI，jsPlumb；nodejs，mongodb。
+功能：新建一个结构图（dialog），从工具框中拖出一个节点（drag，drop）。可以修改节点的名字（dialog），给节点加笔记，删除节点，节点间连线（jsplumb）。存入数据库，重新打开，可以保存和另存。
+学到的东西：
+1、删除元素，添加元素，再添加事件时，要注意unbind之前加的事件
+2、dialog destroy会删掉jquery UI添加的dialog元素，remove是删除自己写的元素。
+
+
+现在总结时，很多细节都记不太清，当时都记在博客中了。
